@@ -1,5 +1,4 @@
 #include <stdio.h>
-int test;
 
 int main() {
    // printf() displays the string inside quotation
