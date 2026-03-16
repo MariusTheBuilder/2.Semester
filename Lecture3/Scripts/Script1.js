@@ -14,3 +14,4 @@ for(let i = 0; i <=5; i++){
 let nestedArray = [[5,6], [7,8]];
 
 console.log(nestedArray[0][1]);
+
