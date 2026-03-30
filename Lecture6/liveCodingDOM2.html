@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <h1>Buzz</h1>
+    <p>This is a bucket.</p>
+    <p>Dear god...</p>
+    <p>Wait, there's more</p>
+    <p>No...</p>
+    <script>
+        const body = document.body;
+        const paragraphs = body.getElementsByTagName("p");
+
+        for(let p of paragraphs)
+        {
+            console.log(p.textContent);
+        }
+
+    </script>
+</body>
+</html>

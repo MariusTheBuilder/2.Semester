@@ -7,7 +7,6 @@ It should stop when you force the program to stop using Ctrl+C.
 
 let count = 1;
 
-
 setInterval (() => {
     console.log(count);
     count = count + 1;
