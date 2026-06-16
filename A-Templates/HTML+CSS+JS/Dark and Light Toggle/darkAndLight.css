@@ -1,0 +1,40 @@
+/* Default = light mode */
+body {
+  --bg: #ffffff;
+  --text: #1a202c;
+  --card: #f7fafc;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, sans-serif;
+  transition: background 0.3s, color 0.3s;
+  display: flex;
+  justify-content: center;
+  padding: 60px 20px;
+}
+
+/* Dark mode overrides the variables */
+body.dark {
+  --bg: #1a202c;
+  --text: #e2e8f0;
+  --card: #2d3748;
+}
+
+.container {
+  background: var(--card);
+  padding: 40px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: 2px solid currentColor;
+  background: transparent;
+  color: inherit;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+}

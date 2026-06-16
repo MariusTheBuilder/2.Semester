@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Notes App</title>
+</head>
+<body>
+  <h1>Notes</h1>
+
+  <input id="titleInput" placeholder="Title" />
+  <textarea id="bodyInput" placeholder="Content"></textarea>
+  <button onclick="saveNote()">Save Note</button>
+
+  <h2>All Notes</h2>
+  <div id="notesList"></div>
+
+  <script>
+    // Load all notes on page load
+    async function loadNotes() {
+      const res   = await fetch("/api/notes");
+      const notes = await res.json();
+      const div   = document.getElementById("notesList");
+      div.innerHTML = "";
+      notes.forEach(function(note) {
+        div.innerHTML += `<div><h3>${note.title}</h3><p>${note.body}</p></div>`;
+      });
+    }
+
+    async function saveNote() {
+      const title = document.getElementById("titleInput").value;
+      const body  = document.getElementById("bodyInput").value;
+
+      await fetch("/api/notes", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ title, body })
+      });
+
+      // Clear inputs and reload list
+      document.getElementById("titleInput").value = "";
+      document.getElementById("bodyInput").value  = "";
+      loadNotes();
+    }
+
+    loadNotes(); // run on page load
+  </script>
+</body>
+</html>
